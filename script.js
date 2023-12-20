@@ -67,6 +67,7 @@ playBtn.addEventListener("click" , () => (isPlaying ? pauseSong() : playSong()))
 // Update the DOM
 
 function loadSong(song) {
+    console.log("songindex: ", songIndex)
     console.log("song: ", song)
     title.textContent = song.displayName;
     artist.innerText = song.artist;
@@ -83,7 +84,9 @@ let songIndex = 0;
 function prevSong(){
     songIndex--;
     if(songIndex < 0) {
-        songIndex = songs.lenght - 1;
+        console.log("songs length: ", songs.length)
+        songIndex = songs.length - 1;
+        console.log("songindex: ", songIndex)
     }
     console.log(`Current song playing: ${songIndex}`);
     loadSong(songs[songIndex]);
